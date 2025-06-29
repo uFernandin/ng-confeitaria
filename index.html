@@ -22,49 +22,261 @@
         }
     </script>
     <style>
-        /* Estilos personalizados */
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
-
+        
         .floating {
             animation: float 3s ease-in-out infinite;
         }
-
+        
         .chat-message {
             max-width: 80%;
             margin-bottom: 1rem;
             padding: 0.75rem 1rem;
             border-radius: 1rem;
         }
-
+        
         .user-message {
             background-color: #e6e6fa;
             margin-left: auto;
             border-bottom-right-radius: 0.25rem;
         }
-
+        
         .bot-message {
             background-color: #fffacd;
             margin-right: auto;
             border-bottom-left-radius: 0.25rem;
         }
-
+        
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-
+        
         .product-card {
             transition: all 0.3s ease;
         }
     </style>
 </head>
 <body class="bg-cake-pink min-h-screen">
-    <!-- Aqui entra todo o conteúdo que você já colou -->
-    <!-- ... (omitido por brevidade) ... -->
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-birthday-cake text-3xl text-cake-brown mr-3"></i>
+                <h1 class="text-2xl font-bold text-cake-brown">NG Confeitaria</h1>
+            </div>
+            <div class="hidden md:flex space-x-4">
+                <a href="#produtos" class="px-3 py-2 text-cake-brown hover:text-cake-purple font-medium">Produtos</a>
+                <a href="#sobre" class="px-3 py-2 text-cake-brown hover:text-cake-purple font-medium">Sobre Nós</a>
+                <a href="#contato" class="px-3 py-2 text-cake-brown hover:text-cake-purple font-medium">Contato</a>
+            </div>
+            <button class="md:hidden text-cake-brown">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 px-4 bg-gradient-to-r from-cake-pink to-cake-purple">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Delícias em Potinho</h2>
+                <p class="text-xl text-white mb-6">Experimente nossos bolos de pote e bombons na travessa - perfeitos para qualquer ocasião!</p>
+                <button id="start-order" class="bg-cake-yellow text-cake-brown font-bold py-3 px-6 rounded-full hover:bg-cake-brown hover:text-white transition duration-300">
+                    Faça seu pedido agora <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Bolo de pote" class="rounded-lg shadow-xl w-full max-w-md floating">
+                    <div class="absolute -bottom-4 -right-4 bg-white p-3 rounded-full shadow-lg">
+                        <span class="text-cake-brown font-bold text-lg">R$ 12,90</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="produtos" class="py-12 px-4 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center text-cake-brown mb-12">Nossos Produtos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Bolos de Pote -->
+                <div class="bg-cake-yellow p-6 rounded-xl">
+                    <h3 class="text-2xl font-bold text-cake-brown mb-4 flex items-center">
+                        <i class="fas fa-glass-whiskey mr-3"></i> Bolos de Pote (250g)
+                    </h3>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="product-card bg-white p-4 rounded-lg cursor-pointer" data-product="Bolo de Leite Ninho (massa branca)" data-price="12.90">
+                            <h4 class="font-bold text-cake-brown">Leite Ninho (massa branca)</h4>
+                            <p class="text-gray-600 text-sm">Creme de leite ninho com massa branca fofinha</p>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="font-bold text-cake-brown">R$ 12,90</span>
+                                <button class="bg-cake-pink text-white px-3 py-1 rounded-full text-sm hover:bg-cake-brown">Adicionar</button>
+                            </div>
+                        </div>
+                        <div class="product-card bg-white p-4 rounded-lg cursor-pointer" data-product="Bolo de Leite Ninho (massa de chocolate)" data-price="12.90">
+                            <h4 class="font-bold text-cake-brown">Leite Ninho (massa de chocolate)</h4>
+                            <p class="text-gray-600 text-sm">Creme de leite ninho com massa de chocolate</p>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="font-bold text-cake-brown">R$ 12,90</span>
+                                <button class="bg-cake-pink text-white px-3 py-1 rounded-full text-sm hover:bg-cake-brown">Adicionar</button>
+                            </div>
+                        </div>
+                        <div class="product-card bg-white p-4 rounded-lg cursor-pointer" data-product="Bolo de Limão" data-price="12.90">
+                            <h4 class="font-bold text-cake-brown">Limão</h4>
+                            <p class="text-gray-600 text-sm">Massa branca com recheio de limão fresco</p>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="font-bold text-cake-brown">R$ 12,90</span>
+                                <button class="bg-cake-pink text-white px-3 py-1 rounded-full text-sm hover:bg-cake-brown">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bombons na Travessa -->
+                <div class="bg-cake-green p-6 rounded-xl">
+                    <h3 class="text-2xl font-bold text-cake-brown mb-4 flex items-center">
+                        <i class="fas fa-candy-cane mr-3"></i> Bombons na Travessa (250g)
+                    </h3>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="product-card bg-white p-4 rounded-lg cursor-pointer" data-product="Bombom de Morango" data-price="15.90">
+                            <h4 class="font-bold text-cake-brown">Morango</h4>
+                            <p class="text-gray-600 text-sm">Bombons recheados com morango fresco</p>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="font-bold text-cake-brown">R$ 15,90</span>
+                                <button class="bg-cake-pink text-white px-3 py-1 rounded-full text-sm hover:bg-cake-brown">Adicionar</button>
+                            </div>
+                        </div>
+                        <div class="product-card bg-white p-4 rounded-lg cursor-pointer" data-product="Bombom de Uva" data-price="15.90">
+                            <h4 class="font-bold text-cake-brown">Uva</h4>
+                            <p class="text-gray-600 text-sm">Bombons recheados com uva verde</p>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="font-bold text-cake-brown">R$ 15,90</span>
+                                <button class="bg-cake-pink text-white px-3 py-1 rounded-full text-sm hover:bg-cake-brown">Adicionar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-12 px-4 bg-cake-purple text-white">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl font-bold mb-6">Sobre a NG Confeitaria</h2>
+                    <p class="mb-4">Há mais de 5 anos adoçando a vida dos nossos clientes com produtos artesanais de alta qualidade.</p>
+                    <p class="mb-4">Nossos bolos de pote e bombons na travessa são feitos com ingredientes selecionados e muito carinho.</p>
+                    <p>Todos os nossos produtos são preparados diariamente para garantir frescor e sabor incomparáveis.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1562440499-64c9a111f4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Confeiteira trabalhando" class="rounded-lg shadow-xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Widget -->
+    <div id="chat-container" class="fixed bottom-8 right-8 w-80 bg-white rounded-t-xl shadow-xl hidden">
+        <div class="bg-cake-brown text-white p-3 rounded-t-xl flex justify-between items-center">
+            <h3 class="font-bold">Faça seu pedido</h3>
+            <button id="close-chat" class="text-white hover:text-cake-yellow">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div id="chat-messages" class="h-80 overflow-y-auto p-4 bg-gray-50">
+            <div class="bot-message chat-message">
+                <p>Olá! Bem-vindo à NG Confeitaria 😊</p>
+                <p>Qual seu nome?</p>
+            </div>
+        </div>
+        
+        <div class="p-3 bg-white border-t">
+            <div id="name-input" class="mb-2">
+                <input type="text" placeholder="Digite seu nome" class="w-full p-2 border rounded">
+                <button id="send-name" class="mt-2 w-full bg-cake-brown text-white py-2 rounded hover:bg-cake-yellow hover:text-cake-brown">Enviar</button>
+            </div>
+            
+            <div id="product-selection" class="hidden">
+                <p class="text-sm text-gray-600 mb-2">Escolha os produtos:</p>
+                <div class="flex flex-wrap gap-2 mb-2">
+                    <button class="product-btn bg-cake-pink text-white px-3 py-1 rounded-full text-sm" data-product="Bolo de Leite Ninho (massa branca)">Bolo Branco</button>
+                    <button class="product-btn bg-cake-pink text-white px-3 py-1 rounded-full text-sm" data-product="Bolo de Leite Ninho (massa de chocolate)">Bolo Chocolate</button>
+                    <button class="product-btn bg-cake-pink text-white px-3 py-1 rounded-full text-sm" data-product="Bolo de Limão">Bolo Limão</button>
+                    <button class="product-btn bg-cake-pink text-white px-3 py-1 rounded-full text-sm" data-product="Bombom de Morango">Bombom Morango</button>
+                    <button class="product-btn bg-cake-pink text-white px-3 py-1 rounded-full text-sm" data-product="Bombom de Uva">Bombom Uva</button>
+                </div>
+                <div id="order-summary" class="hidden mb-2 p-2 bg-cake-yellow rounded">
+                    <h4 class="font-bold text-sm">Seu Pedido:</h4>
+                    <ul id="order-items" class="text-sm"></ul>
+                    <p id="order-total" class="font-bold mt-1 text-sm">Total: R$ 0,00</p>
+                </div>
+                <div id="contact-input" class="hidden">
+                    <input type="text" placeholder="Telefone para contato" class="w-full p-2 border rounded mb-2">
+                    <input type="text" placeholder="Endereço de entrega" class="w-full p-2 border rounded mb-2">
+                    <button id="complete-order" class="w-full bg-cake-brown text-white py-2 rounded hover:bg-cake-yellow hover:text-cake-brown">Finalizar Pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Button -->
+    <button id="chat-button" class="fixed bottom-8 right-8 bg-cake-brown text-white w-14 h-14 rounded-full shadow-lg hover:bg-cake-yellow hover:text-cake-brown transition duration-300 flex items-center justify-center">
+        <i class="fas fa-shopping-cart text-xl"></i>
+    </button>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-12 px-4 bg-cake-yellow">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center text-cake-brown mb-12">Entre em Contato</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl text-center">
+                    <i class="fas fa-phone-alt text-3xl text-cake-brown mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Telefone</h3>
+                    <p>(11) 98765-4321</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl text-center">
+                    <i class="fas fa-envelope text-3xl text-cake-brown mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Email</h3>
+                    <p>contato@ngconfeitaria.com</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl text-center">
+                    <i class="fas fa-map-marker-alt text-3xl text-cake-brown mb-4"></i>
+                    <h3 class="font-bold text-lg mb-2">Endereço</h3>
+                    <p>Rua dos Doces, 123 - Centro</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white p-6 rounded-xl max-w-2xl mx-auto">
+                <h3 class="font-bold text-xl text-center mb-6">Nos envie uma mensagem</h3>
+                <form>
+                    <div class="mb-4">
+                        <input type="text" placeholder="Seu nome" class="w-full p-3 border rounded">
+                    </div>
+                    <div class="mb-4">
+                        <input type="email" placeholder="Seu email" class="w-full p-3 border rounded">
+                    </div>
+                    <div class="mb-4">
+                        <textarea placeholder="Sua mensagem" class="w-full p-3 border rounded h-32"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-cake-brown text-white py-3 rounded hover:bg-cake-pink hover:text-white">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="bg-cake-brown text-white py-8 px-4">
         <div class="container mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -85,5 +297,197 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Chat functionality
+        const chatButton = document.getElementById('chat-button');
+        const chatContainer = document.getElementById('chat-container');
+        const closeChat = document.getElementById('close-chat');
+        const startOrder = document.getElementById('start-order');
+        const chatMessages = document.getElementById('chat-messages');
+        const nameInput = document.getElementById('name-input');
+        const sendName = document.getElementById('send-name');
+        const productSelection = document.getElementById('product-selection');
+        const orderSummary = document.getElementById('order-summary');
+        const orderItems = document.getElementById('order-items');
+        const orderTotal = document.getElementById('order-total');
+        const contactInput = document.getElementById('contact-input');
+        const completeOrder = document.getElementById('complete-order');
+        const productBtns = document.querySelectorAll('.product-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        let customerName = '';
+        let order = [];
+        
+        // Toggle chat
+        chatButton.addEventListener('click', () => {
+            chatContainer.classList.toggle('hidden');
+        });
+        
+        closeChat.addEventListener('click', () => {
+            chatContainer.classList.add('hidden');
+        });
+        
+        startOrder.addEventListener('click', () => {
+            chatContainer.classList.remove('hidden');
+        });
+        
+        // Name input
+        sendName.addEventListener('click', () => {
+            const nameField = nameInput.querySelector('input');
+            if (nameField.value.trim() !== '') {
+                customerName = nameField.value.trim();
+                
+                // Add user message
+                addMessage(customerName, 'user-message');
+                
+                // Add bot response
+                setTimeout(() => {
+                    addMessage(`Prazer em conhecê-lo, ${customerName}! Que delícias da NG Confeitaria você gostaria de pedir hoje?`, 'bot-message');
+                    
+                    // Show product selection
+                    nameInput.classList.add('hidden');
+                    productSelection.classList.remove('hidden');
+                }, 500);
+            }
+        });
+        
+        // Product selection
+        productBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const productName = btn.getAttribute('data-product');
+                let price = 12.90;
+                
+                if (productName.includes('Bombom')) {
+                    price = 15.90;
+                }
+                
+                // Add to order
+                order.push({
+                    name: productName,
+                    price: price
+                });
+                
+                updateOrderSummary();
+                
+                // Show contact info if not already shown
+                if (!contactInput.classList.contains('hidden')) return;
+                
+                // Add bot message suggesting to add more or finish
+                setTimeout(() => {
+                    addMessage(`Adicionei ${productName} ao seu pedido. Deseja adicionar mais itens ou finalizar?`, 'bot-message');
+                    
+                    // Show contact info after first product is added
+                    contactInput.classList.remove('hidden');
+                }, 500);
+            });
+        });
+        
+        // Product cards from main page
+        productCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const productName = card.getAttribute('data-product');
+                const price = parseFloat(card.getAttribute('data-price'));
+                
+                // Open chat if not open
+                if (chatContainer.classList.contains('hidden')) {
+                    chatContainer.classList.remove('hidden');
+                }
+                
+                // If name not entered yet, focus on name field
+                if (!customerName) {
+                    nameInput.querySelector('input').focus();
+                    return;
+                }
+                
+                // Add to order
+                order.push({
+                    name: productName,
+                    price: price
+                });
+                
+                updateOrderSummary();
+                
+                // Show contact info if not already shown
+                if (!contactInput.classList.contains('hidden')) return;
+                
+                // Add bot message
+                setTimeout(() => {
+                    addMessage(`Adicionei ${productName} ao seu pedido. Deseja adicionar mais itens ou finalizar?`, 'bot-message');
+                    
+                    // Show contact info after first product is added
+                    contactInput.classList.remove('hidden');
+                }, 500);
+            });
+        });
+        
+        // Complete order
+        completeOrder.addEventListener('click', () => {
+            const phone = contactInput.querySelector('input[type="text"]').value;
+            const address = contactInput.querySelectorAll('input[type="text"]')[1].value;
+            
+            if (phone.trim() === '' || address.trim() === '') {
+                addMessage('Por favor, preencha todos os campos de contato.', 'bot-message');
+                return;
+            }
+            
+            if (order.length === 0) {
+                addMessage('Seu pedido está vazio. Por favor, adicione algum produto.', 'bot-message');
+                return;
+            }
+            
+            // Add confirmation message
+            addMessage(`Obrigado pelo seu pedido, ${customerName}!`, 'bot-message');
+            
+            // Show order details
+            setTimeout(() => {
+                let message = `Resumo do pedido:\n`;
+                order.forEach(item => {
+                    message += `- ${item.name}: R$ ${item.price.toFixed(2)}\n`;
+                });
+                message += `\nTotal: R$ ${calculateTotal().toFixed(2)}\n\n`;
+                message += `Entraremos em contato pelo telefone ${phone} para confirmar a entrega no endereço:\n${address}`;
+                
+                addMessage(message, 'bot-message');
+                
+                // Reset order
+                order = [];
+                updateOrderSummary();
+                contactInput.querySelector('input[type="text"]').value = '';
+                contactInput.querySelectorAll('input[type="text"]')[1].value = '';
+            }, 500);
+        });
+        
+        // Helper functions
+        function addMessage(text, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('chat-message', type);
+            messageDiv.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        function updateOrderSummary() {
+            if (order.length === 0) {
+                orderSummary.classList.add('hidden');
+                return;
+            }
+            
+            orderSummary.classList.remove('hidden');
+            orderItems.innerHTML = '';
+            
+            order.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - R$ ${item.price.toFixed(2)}`;
+                orderItems.appendChild(li);
+            });
+            
+            orderTotal.textContent = `Total: R$ ${calculateTotal().toFixed(2)}`;
+        }
+        
+        function calculateTotal() {
+            return order.reduce((sum, item) => sum + item.price, 0);
+        }
+    </script>
 </body>
 </html>
